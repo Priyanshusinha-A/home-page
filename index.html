@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - HackXss</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar with website name, logo, and login button -->
+  <nav>
+    <div class="website-name">HackXss</div>
+    
+    <img src="https://media.tenor.com/thF-4X-idtEAAAAi/hack-hacker.gif" alt="HackXss Logo" class="logo">
+    
+    <a href="C:\Users\Lenovo\Desktop\New folder\login\login.html" class="login-button">Login</a>
+  </nav>
+
+  <!-- Welcome Text -->
+  <div class="typing-effect" id="typing"></div>
+
+  <script>
+    const text = "Welcome to my website";
+    const typingElement = document.getElementById('typing');
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typingElement.textContent += text[index];
+        index++;
+        setTimeout(type, 100); // Adjust the delay for typing speed (in milliseconds)
+      } else {
+        // Reset and restart typing after completing
+        setTimeout(() => {
+          typingElement.textContent = ''; // Clear the text
+          index = 0; // Reset the index
+          type(); // Restart the typing effect
+        }, 1000); // Wait for 1 second before restarting (adjust as needed)
+      }
+    }
+
+    type(); // Start the typing effect
+  </script>
+
+  <!-- Main Content Section -->
+  <div class="content">
+    <!-- Hacking Content Box -->
+    <div class="content-box" id="hacking-box">
+      <a href="https://drive.google.com/drive/folders/1mZwaNmPJB6OcGf-lSejIvbU8y2YxjDt4">
+      <img src="https://c4.wallpaperflare.com/wallpaper/371/264/21/itzmauuuroo-hackers-anonymous-hd-wallpaper-preview.jpg" alt="Hacking">
+      <h2>Hacking</h2>
+      <p>Dive into the world of hacking! Discover tools, tips, and resources to help you enhance your cybersecurity skills and stay ahead in the digital world.</p>
+    </a>
+    </div>
+
+    <!-- Web Development Content Box -->
+    <div class="content-box" id="webdev-box">
+      <a href="https://drive.google.com/drive/u/0/folders/1u6-yqaUha5zUwtfo5-Zc2fXeThBLivTJ">
+      <img src="https://jessup.edu/wp-content/uploads/2024/01/Is-Web-Development-Oversaturated.jpg" alt="Web Development">
+      <h2>Web Development</h2>
+      <p>Explore modern web development trends, frameworks, and techniques. Learn how to create dynamic, responsive websites with engaging user experiences.</p>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
