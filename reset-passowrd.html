@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackXss - Password Reset</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .website-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input[type="password"] {
+            background-color: #2b2b2b;
+            color: #ffffff;
+        }
+
+        input[type="submit"] {
+            background-color: #ff00ff;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff33ff;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+
+        .toggle-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://media.tenor.com/thF-4X-idtEAAAAi/hack-hacker.gif" alt="HackXss Logo" class="logo">
+        <div class="website-name">HackXss</div>
+        <form action="/reset-password" method="POST">
+            <div style="position: relative;">
+                <input type="password" id="new-password" name="new-password" placeholder="Enter new password" required minlength="8">
+                <span class="toggle-icon" onclick="togglePassword('new-password')">👁️</span>
+            </div>
+            <div style="position: relative;">
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" required minlength="8">
+                <span class="toggle-icon" onclick="togglePassword('confirm-password')">👁️</span>
+            </div>
+            <input type="submit" value="Reset Password">
+        </form>
+        <div class="message">Enter a new password and confirm it to reset your password.</div>
+    </div>
+
+    <script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>
